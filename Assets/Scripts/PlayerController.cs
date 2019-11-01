@@ -5,17 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed = 10f;
-    public float maxSpeed = 6f;
+    public float speed = 30f;
+    public float maxSpeed = 30f;
     public LayerMask groundLayer;
-    public float jumpForce = 24.0f;
+    public float jumpForce = 48.0f;
     public CapsuleCollider collider;
     public float distToGround;
     public float distToSides;
     public float gravity = 1.0f;
     public float health = 100.0f;
+    public bool rightfacing = true;
 
+    public bool LTActive = false;
+    public bool RTActive = false;
+    public int TurnTicker = 0;
     public Collider meleeHitbox;
+    public int TURN_BUFFER = 18;
+
+    public int jumps = 2;
+    public int doublejumpbuffer = 100;
+    public int jumprefillbuffer = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +37,50 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        
+        
 
-        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0);
+        // Code that reads left right input    
+        if(!LTActive && !RTActive)
+        {
+            if (rightfacing && Input.GetAxis("Horizontal") < 0)
+            {
+                /*
+                transform.Rotate(Vector3.up, 180.0f);
+                rightfacing = false;
+                */
+                LTActive = true;
+                TurnTicker += TURN_BUFFER;
+                rightfacing = false;
+            }
+            else if (!rightfacing && Input.GetAxis("Horizontal") > 0)
+            {
+                /*
+                transform.Rotate(Vector3.up, 180.0f);
+                rightfacing = true;
+                */
+                RTActive = true;
+                TurnTicker += TURN_BUFFER;
+                rightfacing = true;
+            }
+            transform.Translate(Mathf.Abs(Input.GetAxis("Horizontal")) * Time.deltaTime * speed, 0, 0);
+        }
+        else
+        {
+            float turnInterval = (180.0f / TURN_BUFFER);
+            transform.Rotate(Vector3.up, turnInterval);
+            TurnTicker--;
+            if(TurnTicker == 0)
+            {
+                LTActive = false;
+                RTActive = false;
+            }
+        }
+        
 
+
+        //Attack Button Input
         if (Input.GetAxis("Fire1") > 0)
         {
             Collider[] collisions = Physics.OverlapBox(meleeHitbox.bounds.center, meleeHitbox.bounds.extents, meleeHitbox.transform.rotation, LayerMask.GetMask("Hitbox"));
@@ -46,12 +96,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
+        //Single Jump Input
         if (IsGrounded())
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
+                jumps--;
                 health--;
             }
 

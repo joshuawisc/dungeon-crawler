@@ -14,10 +14,10 @@ public class StateManager : MonoBehaviour
         {
 
             if (PauseMenu.isPaused)
-             {
+            {
                 PauseMenu.Resume(pauseMenuUI);
-             } else
-             {
+            } else
+            {
                 PauseMenu.Pause(pauseMenuUI);
             }
         }
