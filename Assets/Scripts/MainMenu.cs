@@ -8,24 +8,24 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void StartGame()
     {
-        SceneManager.LoadScene("Overworld");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void LoadGame()
     {
-        //Debug.Log("Loading Load Game Screen...");
+        Debug.Log("Load Game Screen...");
        // SceneManager.LoadScene("LoadGame");
     }
 
-    public void LoadOptions()
+    public void LoadSystemSettings()
     {
-      //  Debug.Log("Loading Options...");
-        //SceneManager.LoadScene("Options");
+        Debug.Log("Loading System Settings...");
+        //SceneManager.LoadScene("System Settings");
     }
 
-    public void QuitGame()
+    public void ExitGame()
     {
-        //Debug.Log("Quitting Game");
+        Debug.Log("Quitting Game");
         Application.Quit();
     }
     

@@ -37,15 +37,20 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void LoadOptions()
+    public void LoadSystemSettings()
     {
-        Debug.Log("Loading Options...");
-        //SceneManager.LoadScene("Options");
+        Debug.Log("Loading System Settings...");
+        //SceneManager.LoadScene("System Settings");
     }
-
-    public void QuitGame()
+    
+    public void LoadGameSettings()
     {
-        Debug.Log("Quitting Game");
-        Application.Quit();
+        Debug.Log("Loading Game Settings...");
+        //SceneManager.LoadScene("Game Settings");
+    }
+    public void SaveGame()
+    {
+        Debug.Log("Saving Game..");
+        
     }
 }
