@@ -21,5 +21,6 @@ public class StateManager : MonoBehaviour
                 PauseMenu.Pause(pauseMenuUI);
             }
         }
+
     }
 }
