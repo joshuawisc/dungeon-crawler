@@ -17,6 +17,6 @@ public class HealthHUD : MonoBehaviour
     void Update()
     {
 
-        healthText.text = "Health: " + GameObject.Find("Capsule").GetComponent<PlayerController>().health.ToString();
+        healthText.text = "Health: " + GameObject.Find("Player").GetComponent<PlayerController>().health.ToString();
     }
 }
