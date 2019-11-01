@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     public float maxSpeed = 6f;
     public LayerMask groundLayer;
-    public float jumpForce = 1200.0f;
+    public float jumpForce = 24.0f;
     public CapsuleCollider collider;
     public float distToGround;
     public float distToSides;
     public float gravity = 1.0f;
+    public float health = 100.0f;
+
+    public Collider meleeHitbox;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +30,29 @@ public class PlayerController : MonoBehaviour
     {
 
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0);
-        Debug.Log("" + Input.GetAxis("Vertical"));
+
+        if (Input.GetAxis("Fire1") > 0)
+        {
+            Collider[] collisions = Physics.OverlapBox(meleeHitbox.bounds.center, meleeHitbox.bounds.extents, meleeHitbox.transform.rotation, LayerMask.GetMask("Hitbox"));
+            foreach(Collider col in collisions)
+            {
+                if (col.transform.parent != null && col.transform.parent.parent != null && col.transform.parent.parent == transform)
+                {
+                    Debug.Log("continue");
+                    continue;
+                }
+                Debug.Log(col.name);
+
+            }
+        }
 
         if (IsGrounded())
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                rb.AddForce(Vector3.up * jumpForce);
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+                health--;
             }
 
         
