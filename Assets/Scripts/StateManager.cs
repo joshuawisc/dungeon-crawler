@@ -22,7 +22,7 @@ public class StateManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.isPaused)
         {
             if (InventoryMenu.inInventory)
             {
