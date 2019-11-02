@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-
+    public GameObject inventoryUI;
 
     // Update is called once per frame
     void Update()
@@ -22,5 +22,16 @@ public class StateManager : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (InventoryMenu.inInventory)
+            {
+                InventoryMenu.closeInventory(inventoryUI);
+            }
+            else
+            {
+                InventoryMenu.openInventory(inventoryUI);
+            }
+        }
     }
 }
