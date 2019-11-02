@@ -2,7 +2,7 @@
 
 ## Instructions to Run
 
-- Download or clone the repo
+- Clone the repository
 - Checkout branch named “Iteration-1” 
 - Open project in Unity (ver. 2019.2.10.f1)
 - Go to Assets/Scenes click BasicMap10.31
