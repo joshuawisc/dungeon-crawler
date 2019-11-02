@@ -20,11 +20,13 @@ public class PlayerController : MonoBehaviour
     public bool RTActive = false;
     public int TurnTicker = 0;
     public Collider meleeHitbox;
-    public int TURN_BUFFER = 18;
+    public int TURN_BUFFER = 3;
 
     public int jumps = 2;
     public int doublejumpbuffer = 100;
     public int jumprefillbuffer = 20;
+
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +34,12 @@ public class PlayerController : MonoBehaviour
         collider = GetComponent<CapsuleCollider>();
         distToGround = collider.bounds.extents.y;
         distToSides = collider.bounds.extents.x;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         
         
 
