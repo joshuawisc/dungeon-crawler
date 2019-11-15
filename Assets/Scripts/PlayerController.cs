@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public int doublejumpbuffer = 100;
     public int jumprefillbuffer = 20;
 
+
     public Animator anim;
     // Start is called before the first frame update
     void Start()

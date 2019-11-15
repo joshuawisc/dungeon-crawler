@@ -44,4 +44,30 @@ public class StateManager : MonoBehaviour
             }
         }
     }
+
+    public void SavePlayer ()
+    {
+        SaveSystem.SavePlayer(playerChar, this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerInfo info = SaveSystem.LoadPlayer();
+
+        if (info.level == 1 || currLevel != 1)
+        {
+            SceneManager.LoadScene("BasicMap10.31");
+            currLevel = 1;
+        } else if (info.level == 2)
+        {
+            SceneManager.LoadScene("Level2");
+            currLevel = 2;
+        }
+        Vector3 position;
+        position.x = info.position[0];
+        position.y = info.position[1];
+        position.z = info.position[2];
+        playerChar.transform.position = position;
+    }
+    
 }
