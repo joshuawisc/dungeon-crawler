@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public Transform lookAt;
     public Transform cameraTransform;
     private Camera camera;
-    private float cameraDistance = 15.0f ;
+    public float cameraDistance = 30.0f ;
     
 
     // Start is called before the first frame update
