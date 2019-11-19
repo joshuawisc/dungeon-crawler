@@ -17,12 +17,16 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
-        playerChar = Resources.Load<GameObject>("Player");
-        GameObject ret = Instantiate(playerChar) as GameObject;
-        ret.transform.position = posi;
-        Camera.main.GetComponent<CameraController>().lookAt = ret.transform;
+        GameObject prefab = Resources.Load<GameObject>("Player");
+        playerChar = Instantiate(prefab) as GameObject;
+        playerChar.transform.position = posi;
+        Camera.main.GetComponent<CameraController>().lookAt = playerChar.transform;
         GameObject e = GameObject.Find("Enemy");
-        e.GetComponent<EnemyController>().target = playerChar;
+        if(e != null)
+        {
+            e.GetComponent<EnemyController>().target = playerChar;s
+        }
+        
         //Debug.Log(pos);
     }
     void Update()

@@ -22,14 +22,17 @@ public class PlayerData : MonoBehaviour
 
     void Start()
     {
+        
         cs = GetComponent<CombatScript>();
         playerObject = GetComponent<Transform>();
+        Debug.Log(playerObject.position.x);
         Inventory = new List<Item>();
         //Placeholder Inventory
         for(int i = 0; i < inventorySize; i++)
         {
             Item item = null;
-            if (i % 2 == 0 && i < inventorySize/2) item = Resources.Load<Item>("Items/Potion");
+            if(i % 2 == 0) item = Resources.Load<Item>("Items/Potion");
+
             Inventory.Add(item);
         }
 
