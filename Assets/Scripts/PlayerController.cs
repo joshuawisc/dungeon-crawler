@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public float distToGround;
     public float distToSides;
     public float gravity = 1.0f;
-    public float health = 100.0f;
     public bool rightfacing = true;
 
     public bool LTActive = false;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public Collider meleeHitbox;
     public int TURN_BUFFER = 3;
 
-    public int jumps = 2;
     public int doublejumpbuffer = 100;
     public int jumprefillbuffer = 20;
 
@@ -81,32 +79,12 @@ public class PlayerController : MonoBehaviour
         }
         
 
-
-        //Attack Button Input
-        if (Input.GetAxis("Fire1") > 0)
-        {
-            Collider[] collisions = Physics.OverlapBox(meleeHitbox.bounds.center, meleeHitbox.bounds.extents, meleeHitbox.transform.rotation, LayerMask.GetMask("Hitbox"));
-            foreach(Collider col in collisions)
-            {
-                if (col.transform.parent != null && col.transform.parent.parent != null && col.transform.parent.parent == transform)
-                {
-                    Debug.Log("continue");
-                    continue;
-                }
-                Debug.Log(col.name);
-
-            }
-        }
-
-
         //Single Jump Input
         if (IsGrounded())
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                jumps--;
-                health--;
             }
 
         
