@@ -8,9 +8,11 @@ public class CombatScript : MonoBehaviour
     public Collider meleeHitbox;
     public GameObject weapon;
     public BaseStats stats;
-    public float dashSpeed = 30f;
-    public float maxDashDist = 5f;
-    public float dashDist = 30f;
+    public ParticleSystem psystem;
+    public float dashSpeed = 100f;
+    public float maxDashDist = 7f;
+    public float dashDist = 7f;
+
 
     private float attackTimer = 0f; // To implement per weapon attack times
     private int attacked = 0; // To prevent holding attack
@@ -19,10 +21,12 @@ public class CombatScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float setMaxDash = 30f;
+        float setMaxDash = 7f;
         rb = GetComponent<Rigidbody>();
         stats = new RogueStats();
         meleeHitbox = weapon.GetComponent<Collider>();
+        psystem = GetComponentInChildren<ParticleSystem>();
+        psystem.Stop();
         dashDist = setMaxDash;
         maxDashDist = setMaxDash;
 
@@ -79,18 +83,43 @@ void FixedUpdate()
             {
                 dashed = 0;
             }
+
+            if (Input.GetAxisRaw("Fire2") > 0)
+            {
+                psystem.Play();
+                Debug.Log("Ability");
+                Collider[] collisions = Physics.OverlapBox(meleeHitbox.bounds.center, meleeHitbox.bounds.extents, meleeHitbox.transform.rotation, LayerMask.GetMask("Hitbox"));
+                foreach (Collider col in collisions)
+                {
+                    if (col.transform.parent != null && col.transform.parent == transform)
+                    {
+                        continue;
+                    }
+
+                    if (col.gameObject.GetComponent<EnemyController>().stats.className == "Enemy")
+                    {
+                        col.gameObject.GetComponent<EnemyController>().stats.TakeDamage(51); //TODO: Add weapon damage
+                        Debug.Log("Ability hit: " + col.name + "for 1 damage");
+
+                    }
+
+                }
+            } else
+            {
+                psystem.Stop();
+            }
         }
         Physics.IgnoreLayerCollision(8, 8, false);
         if (dashDist < maxDashDist)
         {
-            Physics.IgnoreLayerCollision(8, 8, true);
+            Physics.IgnoreLayerCollision(8, 8, true);  // To pass through enemies while dashing
             float dash = Mathf.Abs(Input.GetAxis("Horizontal")) * dashSpeed * Time.deltaTime;
             dashDist += dash;
             transform.Translate(dash, 0, 0);
             // rb.AddForce(new Vector3(Mathf.Sign(Input.GetAxis("Horizontal")) * dashSpeed, 0, 0), ForceMode.Impulse);
-            Debug.Log(dash);
+            //Debug.Log(dash);
             dashed = 1;
-            Debug.Log("dashed " + dash.ToString());
+            //Debug.Log("dashed " + dash.ToString());
         }
     }
 
