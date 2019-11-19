@@ -9,7 +9,6 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.data";
         FileStream stream = new FileStream(path, FileMode.Create);
-       
 
         PlayerInfo info = new PlayerInfo(player, state);
 
