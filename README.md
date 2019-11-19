@@ -1,5 +1,6 @@
-dungeon-crawler
-Instructions to Run
+##dungeon-crawler
+
+##Instructions to Run
 Clone the repository
 Checkout branch named “Iteration-2” [git checkout remotes/origin/Iteration-2]
 Open project in Unity (ver. 2019.2.12.f1)
