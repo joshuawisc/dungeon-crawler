@@ -22,8 +22,11 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         Vector3 direction = new Vector3(0 , 0 , -cameraDistance);
+        if(lookAt != null)
+        {
+            cameraTransform.position = lookAt.position + direction;
+        }
         
-        cameraTransform.position = lookAt.position + direction;
 
     }
 }

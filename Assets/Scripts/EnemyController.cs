@@ -17,23 +17,24 @@ public class EnemyController : MonoBehaviour
     Vector3 startingPos;
     Vector3 patrolPos;
 
-    GameObject target;
+    public GameObject target;
     Transform targetTransform;
     BaseStats targetStats;
     NavMeshAgent agent;
 
 
     float attackTimer = 0f; //Prevent attacks every frame
-    
+
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        target = GameObject.Find("Player");
-        targetTransform = target.transform;
-        targetStats = targetTransform.GetComponent<CombatScript>().stats;
+        //target = GameObject.Find("Player");
+
+        //targetTransform = target.transform;
+        //targetStats = targetTransform.GetComponent<CombatScript>().stats;
         agent = GetComponent<NavMeshAgent>();
         startingPos = transform.position;
         patrolPos = transform.position;
@@ -43,6 +44,9 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.Find("Player(Clone)");
+        targetTransform = target.transform;
+        targetStats = targetTransform.GetComponent<CombatScript>().stats;
         Vector3 healthPos = Camera.main.WorldToScreenPoint(this.transform.position);
         healthPos.y += 40;
         enemyHealthLabel.transform.position = healthPos;
@@ -64,7 +68,6 @@ public class EnemyController : MonoBehaviour
             else
             {
                 agent.SetDestination(targetTransform.position);
-                Debug.Log("Follow");
                 FaceTarget();
             }
         }
@@ -75,7 +78,7 @@ public class EnemyController : MonoBehaviour
             //Debug.Log("" + patrolPos.x);
             //TODO: Change destination positions;
             //Debug.Log("Patrol");
-            Debug.Log(agent.remainingDistance.ToString());
+            //Debug.Log(agent.remainingDistance.ToString());
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 if (patrolPos.x == startingPos.x - 5)

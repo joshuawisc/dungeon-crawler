@@ -13,7 +13,7 @@ public class BaseStats
     public void TakeDamage(int damage)
     {
         if (defense >= damage)
-            health -= 1;
+            health -= 10;
         else
             health -= (damage - defense);
     }
