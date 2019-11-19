@@ -41,7 +41,7 @@ ModelImporter:
       name: Unarmed-Jump
       takeName: Take 001
       internalID: 0
-      firstFrame: 33
+      firstFrame: 0
       lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
