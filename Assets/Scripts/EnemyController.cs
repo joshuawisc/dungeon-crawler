@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     Vector3 startingPos;
     Vector3 patrolPos;
 
-    GameObject target;
+    public GameObject target;
     Transform targetTransform;
     BaseStats targetStats;
     NavMeshAgent agent;
@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
 
-        target = GameObject.Find("Player");
+        //target = GameObject.Find("Player(Clone)");
         targetTransform = target.transform;
         targetStats = targetTransform.GetComponent<CombatScript>().stats;
         agent = GetComponent<NavMeshAgent>();

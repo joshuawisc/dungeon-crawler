@@ -17,6 +17,6 @@ public class HealthHUD : MonoBehaviour
     void Update()
     {
 
-        healthText.text = "Health: " + GameObject.Find("Player").GetComponent<CombatScript>().stats.health.ToString();
+        healthText.text = "Health: " + GameObject.Find("Player(Clone)").GetComponent<CombatScript>().stats.health.ToString();
     }
 }

@@ -5,12 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour
 {
+    public static Vector3 posi = new Vector3(3.5f , 5.3f , 1.5f);
+
     public GameObject camera;
     public GameObject pauseMenuUI;
     public GameObject inventoryUI;
     public GameObject playerChar;
     public int currLevel = 1;
     // Update is called once per frame
+
+
+    void Start()
+    {
+        GameObject player = Resources.Load<GameObject>("Player");
+        GameObject ret = Instantiate(player) as GameObject;
+        ret.transform.position = posi;
+        Camera.main.GetComponent<CameraController>().lookAt = ret.transform;
+
+        //Debug.Log(pos);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -60,17 +73,22 @@ public class StateManager : MonoBehaviour
         SceneManager.LoadScene(data.currentScene);
         
 
+        
+
         GameObject player = Resources.Load<GameObject>("Player");
         if(player != null)
         {
             Vector3 pos = new Vector3(data.playerObject[0], data.playerObject[1], data.playerObject[2]);
             //player.transform.position = new Vector3(0,0,0);
-            GameObject ret = Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity);
-            ret.transform.position = pos;
-            Camera.main.GetComponent<CameraController>().lookAt = ret.transform;
-            Debug.Log(pos);
-            
+
+            posi = pos;
+            //GameObject ret = Instantiate(player) as GameObject;
+            //ret.transform.position = pos;
+            //Camera.main.GetComponent<CameraController>().lookAt = ret.transform;
+            //Debug.Log(pos);
+
         }
+        
 
 
         //Vector3 position;
@@ -78,4 +96,9 @@ public class StateManager : MonoBehaviour
         //playerChar.transform.position = position;
     }
     
+    public void setup()
+    {
+        Debug.Log(SceneManager.GetActiveScene().name);
+    }
+
 }
