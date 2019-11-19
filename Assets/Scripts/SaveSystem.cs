@@ -10,9 +10,11 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/player.data";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerInfo info = new PlayerInfo(player, state);
+        //PlayerInfo info = new PlayerInfo(player, state);
+        PlayerData data = player.GetComponent<PlayerData>();
 
-        formatter.Serialize(stream, info);
+
+        formatter.Serialize(stream, data.serialize());
         stream.Close();
     }
 
@@ -24,10 +26,12 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerInfo info = formatter.Deserialize(stream) as PlayerInfo;
+            //PlayerInfo info = formatter.Deserialize(stream) as PlayerInfo;
+
+            PlayerInfo data = formatter.Deserialize(stream) as PlayerInfo;
             stream.Close();
 
-            return info;
+            return data;
         } else
         {
             Debug.LogError("Save file not found here " + path);

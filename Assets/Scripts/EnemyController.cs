@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour
             //Debug.Log("" + patrolPos.x);
             //TODO: Change destination positions;
             //Debug.Log("Patrol");
-            Debug.Log(agent.remainingDistance.ToString());
+            //Debug.Log(agent.remainingDistance.ToString());
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 if (patrolPos.x == startingPos.x - 5)

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour
 {
+    public GameObject camera;
     public GameObject pauseMenuUI;
     public GameObject inventoryUI;
     public GameObject playerChar;
@@ -32,7 +33,7 @@ public class StateManager : MonoBehaviour
             }
             else
             {
-                InventoryMenu.openInventory(inventoryUI);
+                InventoryMenu.openInventory(inventoryUI , playerChar);
             }
         }
         if (currLevel == 1)
@@ -52,22 +53,29 @@ public class StateManager : MonoBehaviour
 
     public void LoadPlayer()
     {
-        PlayerInfo info = SaveSystem.LoadPlayer();
+        PlayerInfo data = SaveSystem.LoadPlayer();
 
-        if (info.level == 1 || currLevel != 1)
+        //SceneManager.LoadScene("BasicMap10.31");
+
+        SceneManager.LoadScene(data.currentScene);
+        
+
+        GameObject player = Resources.Load<GameObject>("Player");
+        if(player != null)
         {
-            SceneManager.LoadScene("BasicMap10.31");
-            currLevel = 1;
-        } else if (info.level == 2)
-        {
-            SceneManager.LoadScene("Level2");
-            currLevel = 2;
+            Vector3 pos = new Vector3(data.playerObject[0], data.playerObject[1], data.playerObject[2]);
+            //player.transform.position = new Vector3(0,0,0);
+            GameObject ret = Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity);
+            ret.transform.position = pos;
+            Camera.main.GetComponent<CameraController>().lookAt = ret.transform;
+            Debug.Log(pos);
+            
         }
-        Vector3 position;
-        position.x = info.position[0];
-        position.y = info.position[1];
-        position.z = info.position[2];
-        playerChar.transform.position = position;
+
+
+        //Vector3 position;
+        
+        //playerChar.transform.position = position;
     }
     
 }

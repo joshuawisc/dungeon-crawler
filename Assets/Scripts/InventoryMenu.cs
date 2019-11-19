@@ -9,8 +9,24 @@ public class InventoryMenu : MonoBehaviour
     public static bool inInventory = false;
 
     // Update is called once per frame
-    public static void openInventory(GameObject inventoryUI)
+    public static void openInventory(GameObject inventoryUI , GameObject playerChar)
     {
+
+        // Get Inventory from Player
+        List<Item> inventory = playerChar.GetComponent<PlayerData>().getInventory();
+        GameObject inventoryMenuChild = inventoryUI.transform.GetChild(0).gameObject;
+        ItemSlot[] UISlots = inventoryMenuChild.GetComponentsInChildren<ItemSlot>();
+
+        
+
+        for(int i = 0; i < UISlots.Length; i ++)
+        {
+            if(inventory[i] != null)
+            {
+                UISlots[i].currentItem = inventory[i];
+            }
+        }
+
         inventoryUI.SetActive(true);
         Time.timeScale = 0f;
         inInventory = true;
