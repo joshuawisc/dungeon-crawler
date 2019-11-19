@@ -5,16 +5,19 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerInfo
 {
-    public int level;
-    public float[] position;
+    public string currentScene;
+    public float[] playerObject;
+    //public List<Item> Inventory;
+    
 
-    public PlayerInfo (UnityEngine.GameObject player, StateManager state)
+    public PlayerInfo (List<Item> inv , Transform trn , string scn)
     {
-        level = state.currLevel;
-        position = new float[3];
-        position[0] = player.transform.position.x;
-        position[1] = player.transform.position.y;
-        position[2] = player.transform.position.z;
+        currentScene = scn;
+        //Inventory = inv;
+        playerObject = new float[3];
+        playerObject[0] = trn.position.x;
+        playerObject[1] = trn.position.y;
+        playerObject[2] = trn.position.z;
 
     }
 }
