@@ -24,7 +24,7 @@ public class StateManager : MonoBehaviour
         GameObject e = GameObject.Find("Enemy");
         if(e != null)
         {
-            e.GetComponent<EnemyController>().target = playerChar;s
+            e.GetComponent<EnemyController>().target = playerChar;
         }
         
         //Debug.Log(pos);
