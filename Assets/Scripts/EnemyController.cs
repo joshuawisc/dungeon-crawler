@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
 
-        //target = GameObject.Find("Player(Clone)");
+        target = GameObject.Find("Player");
         targetTransform = target.transform;
         targetStats = targetTransform.GetComponent<CombatScript>().stats;
         agent = GetComponent<NavMeshAgent>();
@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Vector3 healthPos = Camera.main.WorldToScreenPoint(this.transform.position);
         healthPos.y += 40;
         enemyHealthLabel.transform.position = healthPos;
