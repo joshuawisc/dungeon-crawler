@@ -16,7 +16,10 @@ public class CombatScript : MonoBehaviour
 
     private float attackTimer = 0f; // To implement per weapon attack times
     private int attacked = 0; // To prevent holding attack
-    private int dashed = 0; 
+    private int dashed = 0;
+    private int abilityPressed = 0;
+    private float abilityTime = 0f;
+    private float abilityCooldown = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -84,28 +87,52 @@ void FixedUpdate()
                 dashed = 0;
             }
 
-            if (Input.GetAxisRaw("Fire2") > 0)
+            if (Input.GetAxisRaw("Fire2") > 0 && abilityCooldown == 0)
             {
-                psystem.Play();
-                Debug.Log("Ability");
-                Collider[] collisions = Physics.OverlapBox(meleeHitbox.bounds.center, meleeHitbox.bounds.extents, meleeHitbox.transform.rotation, LayerMask.GetMask("Hitbox"));
-                foreach (Collider col in collisions)
+                if (abilityTime <= 5)
                 {
-                    if (col.transform.parent != null && col.transform.parent == transform)
+                    abilityPressed = 1;
+                    abilityTime += Time.deltaTime;
+                    psystem.Play();
+                    Debug.Log("Ability");
+                    Collider[] collisions = Physics.OverlapBox(meleeHitbox.bounds.center, meleeHitbox.bounds.extents, meleeHitbox.transform.rotation, LayerMask.GetMask("Hitbox"));
+                    foreach (Collider col in collisions)
                     {
-                        continue;
-                    }
+                        if (col.transform.parent != null && col.transform.parent == transform)
+                        {
+                            continue;
+                        }
 
-                    if (col.gameObject.GetComponent<EnemyController>().stats.className == "Enemy")
-                    {
-                        col.gameObject.GetComponent<EnemyController>().stats.TakeDamage(51); //TODO: Add weapon damage
-                        Debug.Log("Ability hit: " + col.name + "for 1 damage");
+                        if (col.gameObject.GetComponent<EnemyController>().stats.className == "Enemy")
+                        {
+                            col.gameObject.GetComponent<EnemyController>().stats.TakeDamage(51); //TODO: Add weapon damage
+                            Debug.Log("Ability hit: " + col.name + "for 1 damage");
 
-                    }
+                        }
 
+                    } 
+                } else
+                {
+                    psystem.Stop();
                 }
             } else
             {
+                if (abilityTime > 0)
+                {
+                    abilityCooldown = abilityTime;
+                    if (abilityCooldown > 5)
+                        abilityCooldown = 5;
+                    if (abilityCooldown < 3)
+                        abilityCooldown = 3;
+                } else
+                {
+                    abilityCooldown -= Time.deltaTime;
+                    if (abilityCooldown < 0)
+                        abilityCooldown = 0;
+                }
+                Debug.Log(abilityCooldown);
+                abilityPressed = 0;
+                abilityTime = 0;
                 psystem.Stop();
             }
         }
