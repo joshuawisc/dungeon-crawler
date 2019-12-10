@@ -11,7 +11,7 @@ public class StateManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject inventoryUI;
     public GameObject playerChar;
-    public int currLevel = 1;
+    public int currLevel;
     // Update is called once per frame
 
 
@@ -57,6 +57,27 @@ public class StateManager : MonoBehaviour
         if (currLevel == 1)
         {
             if (playerChar.transform.position.x > 390)
+            {
+                currLevel = 3;
+                SceneManager.LoadScene("HubWorld");
+            }
+        }
+        if (currLevel == 2)
+        {
+            if (playerChar.transform.position.x > 346)
+            {
+                currLevel = 3;
+                SceneManager.LoadScene("HubWorld");
+            }
+        }
+        if (currLevel == 3)
+        {
+            if (playerChar.transform.position.y < -119)
+            {
+                currLevel = 1;
+                SceneManager.LoadScene("BasicMap10.31");
+            }
+            else if (playerChar.transform.position.x > 415)
             {
                 currLevel = 2;
                 SceneManager.LoadScene("Level2");

@@ -7167,6 +7167,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5077439052621998740, guid: 81e99977a1d48e844af97834da5c7337,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: aaf3075caf9bbc64b85d01c0d1a6346d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81e99977a1d48e844af97834da5c7337, type: 3}
 --- !u!1 &386315119
@@ -12011,7 +12016,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 673566212}
   inventoryUI: {fileID: 1480094957}
   playerChar: {fileID: 0}
-  currLevel: 1
+  currLevel: 2
 --- !u!1001 &925949676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14699,11 +14704,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 4470501023869771634, guid: 92e967efdbb46a446aa9095a153e8ffc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.94
-      objectReference: {fileID: 0}
     - target: {fileID: 5527540668804423552, guid: 92e967efdbb46a446aa9095a153e8ffc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14763,6 +14763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470501023869771634, guid: 92e967efdbb46a446aa9095a153e8ffc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e967efdbb46a446aa9095a153e8ffc, type: 3}
@@ -19272,11 +19277,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 809382205335810361, guid: 63f2bb81ad0f9b0499dfcc88edcec99a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.3
-      objectReference: {fileID: 0}
     - target: {fileID: 1297071075033199659, guid: 63f2bb81ad0f9b0499dfcc88edcec99a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19341,6 +19341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 809382205335810361, guid: 63f2bb81ad0f9b0499dfcc88edcec99a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f2bb81ad0f9b0499dfcc88edcec99a, type: 3}
@@ -19834,11 +19839,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 809382205335810361, guid: 63f2bb81ad0f9b0499dfcc88edcec99a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.51
-      objectReference: {fileID: 0}
     - target: {fileID: 1297071075033199659, guid: 63f2bb81ad0f9b0499dfcc88edcec99a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19913,6 +19913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 809382205335810361, guid: 63f2bb81ad0f9b0499dfcc88edcec99a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f2bb81ad0f9b0499dfcc88edcec99a, type: 3}
