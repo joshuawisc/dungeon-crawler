@@ -70,4 +70,9 @@ public class PlayerData : MonoBehaviour
         return new PlayerInfo(inventory.getInventoryList(), playerObject, currentScene);
     }
 
+    public void tempheal(int hp)
+    {
+        stats.health += hp;
+    }
+
 }

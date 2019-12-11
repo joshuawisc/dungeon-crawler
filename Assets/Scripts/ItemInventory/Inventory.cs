@@ -37,12 +37,7 @@ public class Inventory
     public void useItem(int x, int y)
     {
         int monoindex = toMonoIndex(x, y);
-        Item use = inventory[monoindex];
-        if (use.iid.Equals("01"))
-        {
-
-        }
-        inventory.RemoveAt(monoindex);
+        useItem(monoindex);
     }
 
     public void useItem(int monoindex)
@@ -51,6 +46,11 @@ public class Inventory
         Item rep = ScriptableObject.CreateInstance<Item>();
         rep.iid = "00";
         rep.icon = Resources.Load<Texture>("Items/itembg");
+
+        if (use.iid.Equals("01"))
+        {
+            holderData.tempheal(50);
+        }
         inventory[monoindex] = rep;
     }
 
