@@ -61,6 +61,7 @@ public class EnemyController : MonoBehaviour
             agent.speed = 6f;
             if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending && attackTimer >= 3f)  //TODO: Change based on stats?
             {
+                FindObjectOfType<AudioManager>().Play("TakeDamage");
                 targetStats.TakeDamage(stats.strength); //TODO: add weapon damage
                 attackTimer = 0f;
                 Debug.Log("attack");
