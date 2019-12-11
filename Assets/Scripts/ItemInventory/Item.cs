@@ -9,10 +9,12 @@ public class Item : ScriptableObject
     public string iid;
     public Texture icon;
     public bool isStub;
-
+    public ItemEffect effect;
 
     public Item()
     {
 
     }
+
+
 }

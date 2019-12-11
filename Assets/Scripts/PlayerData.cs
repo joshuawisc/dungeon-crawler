@@ -10,7 +10,7 @@ public class PlayerData : MonoBehaviour
     private CombatScript cs;
 
     private int inventorySize = 25;  //5x5
-    private List<Item> Inventory;
+    private Inventory inventory;
     private Transform playerObject;
 
 
@@ -26,14 +26,13 @@ public class PlayerData : MonoBehaviour
         cs = GetComponent<CombatScript>();
         playerObject = GetComponent<Transform>();
         Debug.Log(playerObject.position.x);
-        Inventory = new List<Item>();
+        inventory = new Inventory(this);
         //Placeholder Inventory
         for(int i = 0; i < inventorySize; i++)
         {
-            Item item = null;
-            if(i % 2 == 0) item = Resources.Load<Item>("Items/Potion");
+            Item item = Resources.Load<Item>("Items/Potion");
 
-            Inventory.Add(item);
+            inventory.addItem(item);
         }
 
         
@@ -46,10 +45,14 @@ public class PlayerData : MonoBehaviour
         stats = cs.stats;
     }
 
-
-    public List<Item> getInventory()
+    public Inventory getInventoryObject()
     {
-        return Inventory;
+        return inventory;
+    }
+
+    public List<Item> getInventoryList()
+    {
+        return inventory.getInventoryList();
     }
 
     public string getCurrMap()
@@ -64,7 +67,7 @@ public class PlayerData : MonoBehaviour
 
     public PlayerInfo serialize()
     {
-        return new PlayerInfo(Inventory, playerObject, currentScene);
+        return new PlayerInfo(inventory.getInventoryList(), playerObject, currentScene);
     }
 
 }
