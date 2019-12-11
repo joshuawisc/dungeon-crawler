@@ -31,6 +31,7 @@ public class StateManager : MonoBehaviour
     }
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 

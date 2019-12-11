@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour , IPointerClickHandler
 {
     public Item currentItem;
     public RawImage SlotIcon;
     public Image itemIcon;
     private bool validated = false;
+    public int monoIndex = 0;
 
 
     private void OnValidate()
@@ -20,7 +22,7 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
-    void Update()
+    public void Update()
     {
         getIcon();
     }
@@ -34,5 +36,13 @@ public class ItemSlot : MonoBehaviour
         
 
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Click Slot: " + monoIndex);
+        InventoryMenu.useItemSlot(monoIndex);
+    }
+
+    
     
 }

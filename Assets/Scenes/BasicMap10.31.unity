@@ -1000,6 +1000,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 58369652}
   itemIcon: {fileID: 0}
+  monoIndex: 27
 --- !u!1 &59035324
 GameObject:
   m_ObjectHideFlags: 0
@@ -6970,6 +6971,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 183768893}
   itemIcon: {fileID: 0}
+  monoIndex: 28
 --- !u!1 &185147419
 GameObject:
   m_ObjectHideFlags: 0
@@ -8811,6 +8813,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 305629916}
   itemIcon: {fileID: 0}
+  monoIndex: 29
 --- !u!1001 &314689949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10128,6 +10131,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 386315121}
   itemIcon: {fileID: 0}
+  monoIndex: 30
 --- !u!1 &398853721
 GameObject:
   m_ObjectHideFlags: 0
@@ -11587,6 +11591,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 452222661}
   itemIcon: {fileID: 0}
+  monoIndex: 31
 --- !u!1001 &455969451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11976,6 +11981,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 460095474}
   itemIcon: {fileID: 0}
+  monoIndex: 32
 --- !u!4 &463092171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527540668804423552, guid: 92e967efdbb46a446aa9095a153e8ffc,
@@ -12728,6 +12734,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 525045435}
   itemIcon: {fileID: 0}
+  monoIndex: 33
 --- !u!1001 &530165458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17456,6 +17463,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 738746613}
   itemIcon: {fileID: 0}
+  monoIndex: 34
 --- !u!1001 &740068896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19884,6 +19892,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 865309754}
   itemIcon: {fileID: 0}
+  monoIndex: 35
 --- !u!1001 &865431299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20823,6 +20832,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 906199050}
   itemIcon: {fileID: 0}
+  monoIndex: 36
 --- !u!1001 &908538216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22032,6 +22042,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 949602324}
   itemIcon: {fileID: 0}
+  monoIndex: 37
 --- !u!1 &954696009
 GameObject:
   m_ObjectHideFlags: 0
@@ -24858,6 +24869,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1091424264}
   itemIcon: {fileID: 0}
+  monoIndex: 38
 --- !u!4 &1093829450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527540668804423552, guid: 92e967efdbb46a446aa9095a153e8ffc,
@@ -25025,6 +25037,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1110131555}
   itemIcon: {fileID: 0}
+  monoIndex: 39
 --- !u!1001 &1131215411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25888,6 +25901,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1170814988}
   itemIcon: {fileID: 0}
+  monoIndex: 40
 --- !u!4 &1186686345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527540668804423552, guid: 92e967efdbb46a446aa9095a153e8ffc,
@@ -26490,6 +26504,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1261908548}
   itemIcon: {fileID: 0}
+  monoIndex: 41
 --- !u!1 &1263566124
 GameObject:
   m_ObjectHideFlags: 0
@@ -27660,6 +27675,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1303381620}
   itemIcon: {fileID: 0}
+  monoIndex: 42
 --- !u!1001 &1311839004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27960,6 +27976,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1321633527}
   itemIcon: {fileID: 0}
+  monoIndex: 43
 --- !u!1001 &1323275072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28814,6 +28831,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 0}
   itemIcon: {fileID: 0}
+  monoIndex: 44
 --- !u!1001 &1362381370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29564,6 +29582,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1403587547}
   itemIcon: {fileID: 0}
+  monoIndex: 45
 --- !u!1001 &1422476831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30949,7 +30968,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -33343,6 +33362,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1609767897}
   itemIcon: {fileID: 0}
+  monoIndex: 46
 --- !u!1001 &1610285581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34555,6 +34575,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1671745362}
   itemIcon: {fileID: 0}
+  monoIndex: 47
 --- !u!1001 &1672120686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34889,6 +34910,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1687296660}
   itemIcon: {fileID: 0}
+  monoIndex: 48
 --- !u!1001 &1695675069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36522,6 +36544,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1807503742}
   itemIcon: {fileID: 0}
+  monoIndex: 49
 --- !u!1001 &1814213837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38446,6 +38469,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 1903000265}
   itemIcon: {fileID: 0}
+  monoIndex: 50
 --- !u!1 &1918018924
 GameObject:
   m_ObjectHideFlags: 0
@@ -40005,6 +40029,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 2003581103}
   itemIcon: {fileID: 0}
+  monoIndex: 51
 --- !u!1 &2005053786
 GameObject:
   m_ObjectHideFlags: 0
@@ -40175,6 +40200,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   SlotIcon: {fileID: 2009531561}
   itemIcon: {fileID: 0}
+  monoIndex: 52
 --- !u!1 &2010331537
 GameObject:
   m_ObjectHideFlags: 0
