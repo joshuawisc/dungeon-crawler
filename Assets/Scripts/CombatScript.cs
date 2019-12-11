@@ -46,6 +46,8 @@ void FixedUpdate()
         {
             if (attackTimer >= 0.01 && attacked == 0)
             {
+                FindObjectOfType<AudioManager>().Play("Swing");
+
                 attacked = 1;
                 weapon.SetActive(true);
                 attackTimer = 0f;
@@ -59,6 +61,8 @@ void FixedUpdate()
 
                     if (col.gameObject.GetComponent<EnemyController>().stats.className == "Enemy")
                     {
+                        FindObjectOfType<AudioManager>().Play("HitEnemy");
+
                         col.gameObject.GetComponent<EnemyController>().stats.TakeDamage(stats.strength); //TODO: Add weapon damage
                         Debug.Log("hit: " + col.name + "for 10 damage");
 
@@ -105,6 +109,7 @@ void FixedUpdate()
 
                         if (col.gameObject.GetComponent<EnemyController>().stats.className == "Enemy")
                         {
+
                             col.gameObject.GetComponent<EnemyController>().stats.TakeDamage(51); //TODO: Add weapon damage
                             Debug.Log("Ability hit: " + col.name + "for 1 damage");
 

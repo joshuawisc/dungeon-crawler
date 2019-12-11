@@ -8862,6 +8862,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5077439052621998740, guid: 81e99977a1d48e844af97834da5c7337,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: aaf3075caf9bbc64b85d01c0d1a6346d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81e99977a1d48e844af97834da5c7337, type: 3}
 --- !u!1 &386315119
@@ -17819,7 +17824,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 673566212}
   inventoryUI: {fileID: 1480094957}
   playerChar: {fileID: 0}
-  currLevel: 1
+  currLevel: 2
 --- !u!1 &925853440
 GameObject:
   m_ObjectHideFlags: 0

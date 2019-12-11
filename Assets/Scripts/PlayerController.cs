@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetAxisRaw("Vertical") > 0)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                FindObjectOfType<AudioManager>().Play("Jump");
             }
 
         
