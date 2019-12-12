@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatScript : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CombatScript : MonoBehaviour
     public float dashSpeed = 100f;
     public float maxDashDist = 7f;
     public float dashDist = 7f;
+    public GameObject flameHUD = null;
 
 
     private float attackTimer = 0f; // To implement per weapon attack times
@@ -32,12 +34,17 @@ public class CombatScript : MonoBehaviour
         psystem.Stop();
         dashDist = setMaxDash;
         maxDashDist = setMaxDash;
+        if (flameHUD == null)
+            flameHUD = GameObject.Find("FlameAbilityHUD");
 
     }
 
 // Update is called once per frame
 void FixedUpdate()
     {
+        Image fimage = flameHUD.GetComponent<Image>();
+        var tempColor = fimage.color;
+
         weapon.SetActive(false);
 
         attackTimer += Time.deltaTime;
@@ -75,6 +82,7 @@ void FixedUpdate()
             attacked = 0;
         }
 
+
         if (stats.className == "Rogue")
         {
             if (Input.GetAxisRaw("Fire3") > 0)
@@ -93,6 +101,9 @@ void FixedUpdate()
 
             if (Input.GetAxisRaw("Fire2") > 0 && abilityCooldown == 0)
             {
+                tempColor.a = 0.5f;
+                fimage.color = tempColor;
+
                 if (abilityTime <= 5)
                 {
                     abilityPressed = 1;
@@ -122,6 +133,9 @@ void FixedUpdate()
                 }
             } else
             {
+                
+                tempColor.a = 0.5f;
+                fimage.color = tempColor;
                 if (abilityTime > 0)
                 {
                     abilityCooldown = abilityTime;
@@ -133,7 +147,11 @@ void FixedUpdate()
                 {
                     abilityCooldown -= Time.deltaTime;
                     if (abilityCooldown < 0)
+                    {
                         abilityCooldown = 0;
+                        tempColor.a = 1f;
+                        fimage.color = tempColor;
+                    }
                 }
                 Debug.Log(abilityCooldown);
                 abilityPressed = 0;
